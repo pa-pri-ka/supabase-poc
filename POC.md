@@ -8,17 +8,19 @@ The objective is to establish whether we can start a simple infrastructure focus
 
 ## Scope
 
+- serve a html + JavaScript + css website
+
 - access the database API using the JavaScript client library
 - access the database API using REST
 - use an Edge Function to restrict REST API access for better security on what the user can do, and disable REST access completely from the outside (Kong)
 - disable postgREST and use DB connections in Edge Functions
-- 
+
 
 ## Installation
 
 Supabase was installed on Windows for this POC, which was a bit quirky. Supabase is clearly conceived for Linux, even though they provide Windows and MacOS guidance.
 
-Supabase was installed as a Docker, the recommended 
+Supabase was installed as a Docker, as recommended in Supabase's docs.
 
 ## Using Supabase
 
@@ -31,4 +33,10 @@ sh reset.sh
 
 - [Studio Dashboard URL](http://localhost:8000)
 
+## Serving a Single-Page Application
+
+Steps:
+- create a public bucket and restrict its MIME types to `text/html, text/css, text/javascript`
+- create a "serve" edge function (index.ts)
+- point the browser to "http://localhost:8000/functions/v1/serve/" (where the edge function is)
 
