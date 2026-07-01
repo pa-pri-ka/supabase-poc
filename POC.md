@@ -8,13 +8,16 @@ The objective is to establish whether we can start a simple infrastructure focus
 
 ## Scope
 
+### Serving the application
+
 - serve a html + JavaScript + css website
+- deployment automation
+- code bundling (esbuild, Vite, Rollup or any other bundler)
+- hide ugly URL that calls a function to serve the app
+- secure everything
 
-- access the database API using the JavaScript client library
-- access the database API using REST
-- use an Edge Function to restrict REST API access for better security on what the user can do, and disable REST access completely from the outside (Kong)
-- disable postgREST and use DB connections in Edge Functions
-
+- setup a REST API that limits a user's actions (instead of allowing a user to change a supabase-js built query or a Request)
+- secure REST API ?
 
 ## Installation
 
@@ -37,6 +40,6 @@ sh reset.sh
 
 Steps:
 - create a public bucket and restrict its MIME types to `text/html, text/css, text/javascript`
+- copy the single-page application's structure into it (index.html, css folder, js folder, assets...)
 - create a "serve" edge function (index.ts)
-- point the browser to "http://localhost:8000/functions/v1/serve/" (where the edge function is)
-
+- point the browser to "http://localhost:8000/functions/v1/serve/" (where the "serve" edge function is)
