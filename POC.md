@@ -11,8 +11,9 @@ The objective is to establish whether we can start a simple infrastructure focus
 ### Serving the application
 
 - serve a html + JavaScript + css website
-- deployment automation
-- code bundling (esbuild, Vite, Rollup or any other bundler)
+- bundle the code (esbuild, Vite, Rollup or any other bundler)
+- automate deployment
+
 - hide ugly URL that calls a function to serve the app
 - secure everything
 
@@ -43,3 +44,16 @@ Steps:
 - copy the single-page application's structure into it (index.html, css folder, js folder, assets...)
 - create a "serve" edge function (index.ts)
 - point the browser to "http://localhost:8000/functions/v1/serve/" (where the "serve" edge function is)
+
+## Adding Parcel As The Bundler
+
+Parcel was chosen for its simplicity, its zero-config / minimal config, and the fact that it also includes a simple hot-reloading dev server on http://localhost:1234
+
+```bash
+# Clean dist/ folder, bundle, start dev server, open default browser
+npm start
+# Same as start, but doesn't open the browser
+npm restart
+# Build the webapp for production in dist/
+npm run build
+```

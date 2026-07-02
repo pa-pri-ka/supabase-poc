@@ -1,5 +1,18 @@
 {
+  "name": "supabase-poc",
+  "source": "webapp/index.html",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "parcel build",
+    "prerestart": "rimraf dist",
+    "restart": "parcel serve",
+    "prestart": "rimraf dist",
+    "start": "parcel serve --open"
+  },
   "devDependencies": {
-    "eslint": "^10.6.0"
+    "@parcel/reporter-json": "^2.16.4",
+    "eslint": "^10.6.0",
+    "parcel": "^2.16.4",
+    "rimraf": "^6.1.3"
   }
 }
