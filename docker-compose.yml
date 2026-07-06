@@ -368,7 +368,7 @@ services:
 
       # JWKS for token verification (EC public + legacy symmetric).
       # For Podman, use: JWT_JWKS: ${JWT_JWKS}
-      # JWT_JWKS: ${JWT_JWKS:-{"keys":[]}}
+      JWT_JWKS: ${JWT_JWKS:-{"keys":[]}}
 
       DATABASE_URL: postgres://supabase_storage_admin:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       STORAGE_PUBLIC_URL: ${SUPABASE_PUBLIC_URL}

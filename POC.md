@@ -40,10 +40,10 @@ sh reset.sh
 ## Serving a Single-Page Application
 
 Steps:
-- create a public bucket and restrict its MIME types to `text/html, text/css, text/javascript`
+- create a public bucket "app-files"
 - copy the single-page application's structure into it (index.html, css folder, js folder, assets...)
 - create a "serve" edge function (index.ts)
-- point the browser to "http://localhost:8000/functions/v1/serve/" (where the "serve" edge function is)
+- point the browser to "http://localhost:8000/functions/v1/serve-app/" (where the "serve-app" edge function is)
 
 ## Adding Parcel As The Bundler
 
@@ -54,6 +54,15 @@ Parcel was chosen for its simplicity, its zero-config / minimal config, and the 
 npm start
 # Same as start, but doesn't open the browser
 npm restart
-# Build the webapp for production in dist/
+```
+
+## Automating deployment
+
+I had to uncomment this in docker-compose.yml in the storage service environment variables: `JWT_JWKS: ${JWT_JWKS:-{"keys":[]}}`. The reason is, given Supabase's current transition between the "old keys" and the "new keys", the new keys needed by Storage weren't yet activated (uncommented) in the configuration. 
+
+```bash
+# Build the webapp for production or local self-hosted Supabase in folder "dist/"
 npm run build
+# Deploys the app without building it first
+npm run deploy
 ```

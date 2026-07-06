@@ -2,16 +2,23 @@
   "name": "supabase-poc",
   "source": "webapp/index.html",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "parcel build",
-    "prerestart": "rimraf dist",
-    "restart": "parcel serve",
-    "prestart": "rimraf dist",
-    "start": "parcel serve --open"
+    "build": "rimraf dist && parcel build --public-url /functions/v1/serve-app/",
+    "build-deploy": "",
+    "deploy": "node --env-file=.env upload-to-supabase-storage.mjs --bucket app-files --dist-folder ./dist",
+    "restart": "rimraf dist && parcel serve",
+    "start": "rimraf dist && parcel serve --open"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.0"
   },
   "devDependencies": {
+    "@eslint/css": "^1.3.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.0.0",
+    "@eslint/markdown": "^8.0.2",
     "@parcel/reporter-json": "^2.16.4",
-    "eslint": "^10.6.0",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0",
     "parcel": "^2.16.4",
     "rimraf": "^6.1.3"
   }
