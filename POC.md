@@ -14,11 +14,8 @@ The objective is to establish whether we can start a simple infrastructure focus
 - bundle the code (esbuild, Vite, Rollup or any other bundler)
 - automate deployment
 
-- hide ugly URL that calls a function to serve the app
-- secure everything
-
-- setup a REST API that limits a user's actions (instead of allowing a user to change a supabase-js built query or a Request)
-- secure REST API ?
+TO DO:
+- setup a REST API that limits a user's actions (instead of allowing a user to change a supabase-js built query or a Request)update 
 
 ## Installation
 
